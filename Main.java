@@ -11,6 +11,7 @@ public class Main
 
 
     int answer = 0;
+    int position = 50;
     while (sc.hasNext())  // as long as the Scanner has more lines to read from the file...
     {
       String line = sc.nextLine();  // gets the next line of input.  This is like "R802"
@@ -26,11 +27,24 @@ String number = line.substring(1);
      // int x = integer.parseInt("802");
         int distance = Integer.parseInt(number);
       // TODO: Now that you have the turning direction, and the turning amount, see if the turn results in a 0
-      int startposition = 50;
+      
 
-      if(direction.equalsto("L"))
+      if(direction.equals("L"))
       {
-        position - distance;
+        position -= distance;
+      }
+      else
+      {
+        position += distance;
+      }
+      position = position % 100;
+      if(position < 0)
+      {
+        position += 100;
+      }
+      else if (position == 0)
+      {
+        answer++;
       }
 
     }
